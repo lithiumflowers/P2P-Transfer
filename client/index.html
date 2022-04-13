@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>P2P Transfer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="theme-color" content="white">
+        <meta name="author" content="游子钊">
+        <meta name="Github:author" content="@lithiumflowers">
+        <link rel="destop" sizes="">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="manifest" href="manifest.json">
+        
+    </head>
+    <body translate="no">
+        <!-- peers -->
+        <x-peers class="center"></x-peers>
+        <!-- 按钮与进度--> 
+        <div>
+            <form id="fileinfo">
+                <input type="file" id="fileinput" name="files">
+            </form>
+            <button disabled id="sendfile">发送</button>
+            <button disabled id="abortfile">中止</button>
+        </div>
+
+        <div class="progress"></div>
+        <!-- 音效 -->
+        <audio></audio>
+        <!-- Script -->
+        <script></script>
+        <!-- JS被禁用 -->
+        <noscript>
+            <x-noscript class="full center column">
+                <h1>请打开JavaScript，本网页依赖JavaScript运行</h1>
+            </x-noscript>
+            <style>
+                x-noscript {
+                    background: skyblue;
+                    color: white;
+                    z-index: 2;
+                }
+                
+                h1[class="full center column"]{
+                    color: white;
+                }
+            </style>
+        </noscript>
+    </body>
+</html>

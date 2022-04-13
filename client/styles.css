@@ -1,0 +1,11 @@
+:root {
+    --icon-size:24px;
+    --primary-color:ray;
+    --peer-width:120px;
+    color-scheme: light dark;
+}
+
+html {
+    height: 100%;
+}
+
