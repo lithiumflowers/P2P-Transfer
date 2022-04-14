@@ -25,11 +25,19 @@
             <button disabled id="abortfile">中止</button>
         </div>
 
-        <div class="progress"></div>
-        <!-- 音效 -->
-        <audio></audio>
+        <div></div><!--显示连接的对等方-->
+
+        <div class="progress">
+            <div class="progressbar">Send Progress</div>
+            <progress id="sendprogress" max="0" value="0"></progress>
+        </div>
+
+        <div class="progress">
+            <div class="progressbar">Receive Progress</div>
+            <progress id="receiveprogress" max="0" value="0"></progress>
+        </div>
         <!-- Script -->
-        <script></script>
+        <script src="script/networ.js"></script>
         <!-- JS被禁用 -->
         <noscript>
             <x-noscript class="full center column">

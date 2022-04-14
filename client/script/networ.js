@@ -1,54 +1,8 @@
 window.URL = window.URL || window.webkitURL;
 window.isRtcSupported = !!(window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection);
 
-class ServerConnection{
-    constructor(){}
-}
-
-class Peer{
-    constructor(serverconnection,peerID){
-        this._server = serverconnection; //连接服务器
-        this._peerID = peerID; //peerID
-        this._filesQueue = []; //文件传输队列，数组
-        this._busy = false; //网络繁忙标记
-    }
-
-    sendJSON(message){ //将参数转为json格式并发送
-        this._send(JSON.stringify(message))
-    }
-    
-    sendFiles(files){ //文件入列
-        for(let i = 0;i < files.length;i ++){
-            this._filesQueue.push(files[i])
-        }
-        if(this._busy) return;
-        this._dequeueFile();
-    }
-
-    _dequeueFile(){ //文件出列
-        if(!this.this._filesQueue.length) return;
-        this._busy = true;
-        const file = this._filesQueue.shift();
-        this._sendFile(file);
-    }
-
-    _sendFile(file){ //文件分片并发送，同时发送头包
-        this.sendJSON({
-            type:'header',
-            name:file.name,
-            mime:file.type,
-            size:file.size
-        });
-        this._chunker = new FileChunker(file,
-            chunker => this._sendFile(chunk),
-            offset => this._onParitionEnd(offset));
-        this._chunker.nextPartition();
-    }
-}
-
-class RTCPeer extends Peer{
+class RTCPeer {
     constructor(serverConnection, peerID){
-        super(serverConnection, peerID);
         if(!peerID) return;
         this._connet(peerID,true);
     }
