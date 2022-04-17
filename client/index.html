@@ -5,55 +5,37 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>P2P Transfer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <meta name="theme-color" content="white">
         <meta name="author" content="游子钊">
         <meta name="Github:author" content="@lithiumflowers">
-        <link rel="destop" sizes="">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="manifest" href="manifest.json">
         
     </head>
     <body translate="no">
-        <!-- peers -->
-        <x-peers class="center"></x-peers>
         <!-- 按钮与进度--> 
         <div>
             <form id="fileinfo">
                 <input type="file" id="fileinput" name="files">
             </form>
-            <button disabled id="sendfile">发送</button>
-            <button disabled id="abortfile">中止</button>
+            <button id="sendFile">发送</button>
+            <button id="abortButton">中止</button>
         </div>
 
-        <div></div><!--显示连接的对等方-->
-
         <div class="progress">
-            <div class="progressbar">Send Progress</div>
+            <div class="label">发送进度</div>
             <progress id="sendprogress" max="0" value="0"></progress>
         </div>
 
         <div class="progress">
-            <div class="progressbar">Receive Progress</div>
+            <div class="label">接受进度</div>
             <progress id="receiveprogress" max="0" value="0"></progress>
         </div>
+
+        <div id="bitrate"></div>
+        <a id="download"></a>
+        <span id="status"></span>
         <!-- Script -->
-        <script src="script/networ.js"></script>
-        <!-- JS被禁用 -->
-        <noscript>
-            <x-noscript class="full center column">
-                <h1>请打开JavaScript，本网页依赖JavaScript运行</h1>
-            </x-noscript>
-            <style>
-                x-noscript {
-                    background: skyblue;
-                    color: white;
-                    z-index: 2;
-                }
-                
-                h1[class="full center column"]{
-                    color: white;
-                }
-            </style>
-        </noscript>
+        <script src="script/main.js" defer="defer"></script>
+        <!--<script src="https://unpkg.com/vue@next"></script>-->
     </body>
 </html>
