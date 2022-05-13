@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>P2P Transfer</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <meta name="author" content="游子钊">
-        <meta name="Github:author" content="@lithiumflowers">
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <link rel="manifest" href="manifest.json">
-        
-    </head>
-    <body translate="no">
-        <!-- 按钮与进度--> 
-        <div>
-            <form id="fileinfo">
-                <input type="file" id="fileinput" name="files">
-            </form>
-            <button id="sendFile">发送</button>
-            <button id="abortButton">中止</button>
-        </div>
 
-        <div class="progress">
-            <div class="label">发送进度</div>
-            <progress id="sendprogress" max="0" value="0"></progress>
-        </div>
+<html>
+<head>
 
-        <div class="progress">
-            <div class="label">接受进度</div>
-            <progress id="receiveprogress" max="0" value="0"></progress>
-        </div>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <meta id="theme-color" name="theme-color" content="#ffffff">
 
-        <div id="bitrate"></div>
-        <a id="download"></a>
-        <span id="status"></span>
-        <!-- Script -->
-        <script src="script/main.js" defer="defer"></script>
-        <!--<script src="https://unpkg.com/vue@next"></script>-->
-    </body>
+  <base target="_blank">
+
+  <title>Transfer a file</title>
+
+  <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body>
+
+  <div id="container">
+    <section>
+      <div >
+        <form id="fileInfo">
+          <input type="file" id="fileInput" name="files"/>
+        </form>
+        <button disabled id="sendFile">发送</button>
+        <button disabled id="abortButton">中止</button>
+      </div>
+
+      <div class="progress">
+        <div class="label">发送进度: </div>
+        <progress id="sendProgress" max="0" value="0"></progress>
+      </div>
+
+      <div class="progress">
+        <div class="label">接收进度: </div>
+        <progress id="receiveProgress" max="0" value="0"></progress>
+      </div>
+
+      <div id="bitrate"></div>
+      <a id="download"></a>
+      <span id="status"></span>
+
+    </section>
+  </div>
+
+  <script src="js/main.js"></script>
+
+</body>
 </html>

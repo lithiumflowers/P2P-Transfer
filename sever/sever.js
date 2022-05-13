@@ -38,7 +38,7 @@ io.sockets.on('connection', (socket) => {
       io.sockets.in(room).emit('join', room);
       socket.join(room);
       socket.emit('joined', room); //发送 “joined”消息
-    } else { // max two clients
+    } else {
       socket.emit('full', room); //发送 "full" 消息
     }
     socket.emit('emit(): client ' + socket.id +
